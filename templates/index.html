@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Call - Feature Zote</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .card {
+            background: #1e293b;
+            padding: 40px;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 420px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+        h1 { margin-bottom: 10px; font-size: 28px; }
+        p { color: #94a3b8; margin-bottom: 30px; }
+        input {
+            width: 100%;
+            padding: 14px;
+            border-radius: 12px;
+            border: none;
+            background: #0f172a;
+            color: white;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+        button {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-bottom: 12px;
+            transition: 0.2s;
+        }
+        .btn-primary { background: #3b82f6; color: white; }
+        .btn-primary:hover { background: #2563eb; }
+        .btn-secondary { background: #334155; color: white; }
+        .btn-secondary:hover { background: #475569; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Video Call</h1>
+        <p>Feature zote • Haraka • P2P</p>
+
+        <a href="/create" style="text-decoration:none">
+            <button class="btn-primary">Unda Room Mpya</button>
+        </a>
+
+        <div style="margin: 25px 0; color:#64748b">au</div>
+
+        <input type="text" id="roomId" placeholder="Weka Room ID">
+        <button class="btn-secondary" onclick="joinRoom()">Join Room</button>
+    </div>
+
+    <script>
+        function joinRoom() {
+            const id = document.getElementById('roomId').value.trim();
+            if (id) window.location.href = '/room/' + id;
+        }
+        document.getElementById('roomId').addEventListener('keypress', e => {
+            if (e.key === 'Enter') joinRoom();
+        });
+    </script>
+</body>
+</html>
